@@ -1,7 +1,7 @@
 # opencv-cuda-ubuntu2204
 ## Compile OpenCV with NVIDIA GPU CUDA support under Ubuntu 22.04 in a virtual environment
 
-Note: These instructions can be used for a minimal Ubuntu installation option.
+**Note:** These instructions can be used for a minimal Ubuntu installation option.
 
 ### Step 1: Remove any NVIDIA drivers
 
@@ -11,7 +11,7 @@ Note: These instructions can be used for a minimal Ubuntu installation option.
 
 ### Step 2: Install NVIDIA CUDA drivers according to [NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#ubuntu)
 
-* Ensure you perform all pre- and post-installation instructions at the above link and reboot
+* **Ensure you perform all pre- and post-installation instructions at the above link and reboot**
 
 ### Step 3: Install latest CUDNN drivers according to Step 3 of [Installing CUDA and cuDNN in Ubuntu 22.04 for deep learning](https://medium.com/@juancrrn/installing-cuda-and-cudnn-in-ubuntu-20-04-for-deep-learning-dad8841714d6)
 
