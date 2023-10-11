@@ -1,7 +1,7 @@
 # opencv-cuda-ubuntu2204
 ## Compile OpenCV with NVIDIA GPU CUDA support under Ubuntu 22.04 in a virtual environment
 
-**Note:** These instructions can be used for a minimal Ubuntu installation option.
+**Note:** These instructions can be used for a minimal Ubuntu installation option using Python 3.10.
 
 ### Step 1: Remove any NVIDIA drivers
 
