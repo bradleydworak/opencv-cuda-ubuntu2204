@@ -31,7 +31,7 @@
 
 * `sudo apt install libpng-dev libjpeg-dev libopenexr-dev libtiff-dev libwebp-dev`
 
-* `sudo aptitude install git`
+* `sudo apt install git`
 
 * `git clone https://github.com/opencv/opencv.git`
 
