@@ -9,7 +9,7 @@
 
 * `sudo apt autoremove`
 
-### Step 2: Install NVIDIA CUDA drivers according to [NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#ubuntu)
+### Step 2: Install NVIDIA CUDA Drivers and Toolkit according to [NVIDIA Data Center Documentation Software Deployment Workflow](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#deployment-workflow)
 
 **Note:** Ensure you perform all pre- and post-installation instructions at the above link and reboot
 
