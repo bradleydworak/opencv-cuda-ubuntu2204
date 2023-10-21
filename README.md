@@ -11,8 +11,6 @@
 
 ### Step 2: Install NVIDIA CUDA Drivers and Toolkit according to [NVIDIA Data Center Documentation Software Deployment Workflow](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#deployment-workflow)
 
-**Note:** Ensure you perform all pre- and post-installation instructions at the above link and reboot
-
 ### Step 3: Install latest CUDNN drivers according to Step 3 of [Installing CUDA and cuDNN in Ubuntu 22.04 for deep learning](https://medium.com/@juancrrn/installing-cuda-and-cudnn-in-ubuntu-20-04-for-deep-learning-dad8841714d6)
 
 ### Step 4: Find Compute Capability for the GPU from [Your GPU Compute Capability](https://developer.nvidia.com/cuda-gpus)
