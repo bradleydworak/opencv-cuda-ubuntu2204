@@ -11,6 +11,18 @@
 
 ### Step 2: Install NVIDIA CUDA Drivers and Toolkit according to [NVIDIA Data Center Documentation Software Deployment Workflow](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#deployment-workflow)
 
+**Note:** This installation has been tested using the 535 version driver. The 545 version appears to have compatibility issues with NVIDIA GPU DirectStorage (GDS). Thus...
+
+* `sudo apt install cuda-drivers-535`
+
+* `sudo apt install cuda-toolkit`
+
+### Step 2b (Optional): Install NVIDIA GPU DirectStorage (GDS) Drivers according to [NVIDIA GPUDirect Storage Installation and Troubleshooting Guide](https://docs.nvidia.com/gpudirect-storage/troubleshooting-guide/index.html)
+
+**Note:** Refer to website for pre-installation instructions, including IOMMU adjustments.
+
+* `sudo apt install nvidia-gds`
+
 ### Step 3: Install latest CUDNN drivers according to Step 3 of [Installing CUDA and cuDNN in Ubuntu 22.04 for deep learning](https://medium.com/@juancrrn/installing-cuda-and-cudnn-in-ubuntu-20-04-for-deep-learning-dad8841714d6)
 
 ### Step 4: Find Compute Capability for the GPU from [Your GPU Compute Capability](https://developer.nvidia.com/cuda-gpus)
