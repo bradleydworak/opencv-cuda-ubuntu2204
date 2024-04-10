@@ -29,6 +29,10 @@ Install the latest CUDA Toolkit using:
 
 * `sudo apt install cuda-toolkit`
 
+Enable persistence mode for the GPU to reduce power draw at idle:
+
+* `sudo nvidia-smi --persistence-mode=ENABLED`
+
 ### Step 2b (Optional): Install NVIDIA GPU DirectStorage (GDS) Drivers according to [NVIDIA GPUDirect Storage Installation and Troubleshooting Guide](https://docs.nvidia.com/gpudirect-storage/troubleshooting-guide/index.html)
 
 **Note:** Refer to website for pre-installation instructions, including IOMMU adjustments.
