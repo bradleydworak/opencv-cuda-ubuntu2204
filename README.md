@@ -11,9 +11,21 @@
 
 ### Step 2: Install NVIDIA CUDA Drivers and Toolkit according to [NVIDIA Data Center Documentation Software Deployment Workflow](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#deployment-workflow)
 
-**Note:** This installation has been tested using the 535 version driver. The 545 version appears to have compatibility issues with NVIDIA GPU DirectStorage (GDS). Thus...
+**Note:** This installation has been tested using the 535 and 550 version drivers.
 
-* `sudo apt install cuda-drivers-535`
+List the cuda-driver versions available:
+
+* `sudo apt list -a cuda-drivers`
+
+Option 1: Decide to install a specific version:
+
+* `sudo apt install cuda-drivers-550`
+
+Option 2: Allow Ubuntu to update to the next available version using:
+
+* `sudo apt install cuda-drivers`
+
+Install the latest CUDA Toolkit using:
 
 * `sudo apt install cuda-toolkit`
 
