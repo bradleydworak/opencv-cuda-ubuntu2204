@@ -11,19 +11,11 @@
 
 ### Step 2: Install NVIDIA CUDA Drivers and Toolkit according to [NVIDIA Data Center Documentation Software Deployment Workflow](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#deployment-workflow)
 
-**Note:** This installation has been tested using the 535 and 550 version drivers.
+**Note:** This installation has been tested using the 550 version drivers.
 
-List the cuda-driver versions available:
+Install NVIDIA Kernel Open Source and CUDA Drivers:
 
-* `sudo apt list -a cuda-drivers`
-
-Option 1: Decide to install a specific version:
-
-* `sudo apt install cuda-drivers-550`
-
-Option 2: Allow Ubuntu to update to the next available version using:
-
-* `sudo apt install cuda-drivers`
+* `sudo apt-get install --verbose-versions nvidia-kernel-source-550-open cuda-drivers-550`
 
 Install the latest CUDA Toolkit using:
 
