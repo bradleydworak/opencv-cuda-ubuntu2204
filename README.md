@@ -1,7 +1,7 @@
-# opencv-cuda-ubuntu2204
-## Compile OpenCV with NVIDIA GPU CUDA support under Ubuntu 22.04 in a virtual environment
+# opencv-cuda-ubuntu2404
+## Compile OpenCV with NVIDIA GPU CUDA support under Ubuntu 24.04 in a virtual environment
 
-**Note:** These instructions can be used for a minimal Ubuntu installation option using Python 3.10.
+**Note:** These instructions can be used for a minimal Ubuntu installation option using Python 3.12.
 
 ### Step 1: Remove any NVIDIA drivers
 
@@ -9,17 +9,20 @@
 
 * `sudo apt autoremove`
 
-### Step 2: Install NVIDIA CUDA Drivers and Toolkit according to [NVIDIA Data Center Documentation Software Deployment Workflow](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#deployment-workflow)
+### Step 2: Install CUDA Toolkit and NVIDIA Drivers according to [NVIDIA CUDA Toolkit 12.6 Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network))
 
-**Note:** This installation has been tested using the 550 version drivers.
-
-Install NVIDIA Kernel Open Source and CUDA Drivers:
-
-* `sudo apt-get install --verbose-versions nvidia-kernel-source-550-open cuda-drivers-550`
+**Note:** This installation has been tested using the NVIDIA Open v560 drivers.
 
 Install the latest CUDA Toolkit using:
 
-* `sudo apt install cuda-toolkit`
+* `wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb`
+* `sudo dpkg -i cuda-keyring_1.1-1_all.deb`
+* `sudo apt-get update`
+* `sudo apt-get -y install cuda-toolkit-12-6`
+
+Install NVIDIA Open Source Drivers:
+
+* `sudo apt-get install -y nvidia-open`
 
 Enable persistence mode for the GPU to reduce power draw at idle:
 
