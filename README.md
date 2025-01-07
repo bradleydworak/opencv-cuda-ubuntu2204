@@ -68,7 +68,7 @@ Enable persistence mode for the GPU to reduce power draw at idle:
 
 * `sudo ldconfig`
 
-### Step 6: Create Python 3.10 Virtual Environment using pipx
+### Step 6: Create Python 3.12 Virtual Environment using pipx
 
 * `sudo apt install python3-pip`
 
@@ -80,9 +80,9 @@ Enable persistence mode for the GPU to reduce power draw at idle:
 
 * `pipx install virtualenv`
 
-* `virtualenv --python=python3.10 {name of environment}`
+* `virtualenv --python=python3.12 {name of environment}`
 
-* `sudo ln -s /usr/local/lib/python3.10/dist-packages/cv2 {environment path and name}/lib/python3.10/site-packages/cv2`
+* `sudo ln -s /usr/local/lib/python3.12/dist-packages/cv2 {environment path and name}/lib/python3.12/site-packages/cv2`
 
 ### Step 7: Test installation
 
