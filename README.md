@@ -9,7 +9,7 @@
 
 * `sudo apt autoremove`
 
-### Step 2: Install CUDA Toolkit and NVIDIA Drivers according to [NVIDIA CUDA Toolkit 12.6 Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network))
+### Step 2: Install CUDA Toolkit and NVIDIA Drivers according to [NVIDIA CUDA Toolkit 12.6 Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network)
 
 **Note:** This installation has been tested using the NVIDIA Open v560 drivers.
 
