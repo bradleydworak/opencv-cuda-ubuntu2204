@@ -62,7 +62,7 @@ Enable persistence mode for the GPU to reduce power draw at idle:
 
 ### Step 5: Find Compute Capability for the GPU from [Your GPU Compute Capability](https://developer.nvidia.com/cuda-gpus)
 
-### Step 6: Prepare to compile OpenCV from source code, adopted from [Installing OpenCV 4 with CUDA in Ubuntu 22.04](https://towardsdev.com/installing-opencv-4-with-cuda-in-ubuntu-20-04-fde6d6a0a367)
+### Step 6: Install prerequisites to compile OpenCV from source code, adopted from [Installing OpenCV 4 with CUDA in Ubuntu 22.04](https://towardsdev.com/installing-opencv-4-with-cuda-in-ubuntu-20-04-fde6d6a0a367)
 
 * `sudo apt install cmake`
 
@@ -78,13 +78,33 @@ Enable persistence mode for the GPU to reduce power draw at idle:
 
 * `sudo apt install git`
 
+### Step 7: Compile and install OpenCV
+
 * `git clone https://github.com/opencv/opencv.git`
 
 * `git clone https://github.com/opencv/opencv_contrib.git`
 
-* `cd opencv; mkdir build; cd build`
+* `cd opencv; mkdir build`
 
-* `cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D WITH_CUDNN=ON -D WITH_CUBLAS=ON -D WITH_TBB=ON -D OPENCV_DNN_CUDA=ON -D OPENCV_ENABLE_NONFREE=ON -D CUDA_ARCH_BIN={compute capability number in the form of x.x} -D OPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -D BUILD_EXAMPLES=OFF -D HAVE_opencv_python3=ON -D ENABLE_FAST_MATH=1 -D cuda_toolkit_root_dir=/usr/local/cuda-{xx.x} -D CUDNN_INCLUDE_DIR=/usr/include/ -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so.8 ..`
+* Add the following lines to the beginning of CMakeLists.txt and save the changes:
+```
+set(PYTHON3_PACKAGES_PATH "/usr/local/lib/python3.12/dist-packages")
+find_package(Python COMPONENTS Interpreter Development NumPy)
+if(Python_NumPy_FOUND)
+    message(STATUS "NumPy version: ${Python_NumPy_VERSION}")
+    message(STATUS "NumPy include directories: ${Python_NumPy_INCLUDE_DIRS}")
+else()
+    message(FATAL_ERROR "NumPy not found!")
+endif()
+```
+* Ensure your Python environment is activated
+
+* cd opencv/build
+
+* Compile with options below:
+```
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D WITH_CUDNN=ON -D WITH_CUBLAS=ON -D WITH_TBB=ON -D OPENCV_DNN_CUDA=ON -D OPENCV_ENABLE_NONFREE=ON -D CUDA_ARCH_BIN={compute capability number in the form of x.x} -D OPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -D BUILD_EXAMPLES=OFF -D HAVE_opencv_python3=ON -D ENABLE_FAST_MATH=1 -D cuda_toolkit_root_dir=/usr/local/cuda-{xx.x} -D CUDNN_INCLUDE_DIR=/usr/include/ -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so ..
+```
 
 * `make -j {number of CPU cores}`
 
