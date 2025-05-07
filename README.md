@@ -17,18 +17,18 @@
 
 ### Step 2: Install the CUDA Toolkit and NVIDIA Drivers according to [NVIDIA CUDA Toolkit Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network)
 
-Install the latest CUDA Toolkit using:
+Install CUDA Toolkit 12.8 (OpenCV does not compile currently with 12.9) using:
 
 * `wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb`
 * `sudo dpkg -i cuda-keyring_1.1-1_all.deb`
 * `sudo apt-get update`
-* `sudo apt-get install cuda-toolkit`
+* `sudo apt-get install cuda-toolkit-12-8`
 
 Install NVIDIA Open Source Drivers:
 
 * `sudo apt-get install nvidia-open`
 
-Enable persistence mode for the GPU to reduce power draw at idle:
+Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
 * `sudo nvidia-smi --persistence-mode=ENABLED`
 
