@@ -1,5 +1,5 @@
 # opencv-cuda-ubuntu2404
-## Compile OpenCV with the latest NVIDIA GPU CUDA driver support under Ubuntu 24.04 in a virtual environment
+## Compile OpenCV with the latest NVIDIA GPU CUDA driver support and numpy2 under Ubuntu 24.04 in a virtual environment
 
 **Note:** These instructions can be used for a minimal Ubuntu installation option using Python 3.12.
 
@@ -94,6 +94,7 @@ Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 ```
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D WITH_CUDNN=ON -D WITH_CUBLAS=ON -D WITH_TBB=ON -D OPENCV_DNN_CUDA=ON -D OPENCV_ENABLE_NONFREE=ON -D CUDA_ARCH_BIN={compute capability number in the form of x.x} -D OPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -D BUILD_EXAMPLES=OFF -D HAVE_opencv_python3=ON -D ENABLE_FAST_MATH=1 -D cuda_toolkit_root_dir=/usr/local/cuda -D CUDNN_INCLUDE_DIR=/usr/include/ -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so.9 -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.12/dist-packages ..
 ```
+* Ensure that the Python3: numpy: is version 2 (v2.2.5) in the cmake results
 
 * `make -j$(nproc)`
 
