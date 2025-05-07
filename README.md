@@ -86,24 +86,13 @@ Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
 * `cd opencv; mkdir build`
 
-* Add the following lines to the beginning of CMakeLists.txt and save the changes:
-```
-set(PYTHON3_PACKAGES_PATH "/usr/local/lib/python3.12/dist-packages")
-find_package(Python COMPONENTS Interpreter Development NumPy)
-if(Python_NumPy_FOUND)
-    message(STATUS "NumPy version: ${Python_NumPy_VERSION}")
-    message(STATUS "NumPy include directories: ${Python_NumPy_INCLUDE_DIRS}")
-else()
-    message(FATAL_ERROR "NumPy not found!")
-endif()
-```
 * Ensure your Python environment is activated
 
 * cd opencv/build
 
 * Compile with options below:
 ```
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D WITH_CUDNN=ON -D WITH_CUBLAS=ON -D WITH_TBB=ON -D OPENCV_DNN_CUDA=ON -D OPENCV_ENABLE_NONFREE=ON -D CUDA_ARCH_BIN={compute capability number in the form of x.x} -D OPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -D BUILD_EXAMPLES=OFF -D HAVE_opencv_python3=ON -D ENABLE_FAST_MATH=1 -D cuda_toolkit_root_dir=/usr/local/cuda-{xx.x} -D CUDNN_INCLUDE_DIR=/usr/include/ -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D WITH_CUDNN=ON -D WITH_CUBLAS=ON -D WITH_TBB=ON -D OPENCV_DNN_CUDA=ON -D OPENCV_ENABLE_NONFREE=ON -D CUDA_ARCH_BIN={compute capability number in the form of x.x} -D OPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -D BUILD_EXAMPLES=OFF -D HAVE_opencv_python3=ON -D ENABLE_FAST_MATH=1 -D cuda_toolkit_root_dir=/usr/local/cuda -D CUDNN_INCLUDE_DIR=/usr/include/ -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so.9 -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.12/dist-packages ..
 ```
 
 * `make -j {number of CPU cores}`
