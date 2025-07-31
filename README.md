@@ -98,6 +98,8 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUD
 
 * `make -j$(nproc)`
 
+Note: If cmake fails to compile due to missing cudnn header and library files, please refer to the following link for help: [How to install cudnn on Ubuntu](https://askubuntu.com/questions/767269/how-can-i-install-cudnn-on-ubuntu-16-04/767270#767270)
+
 * `sudo make install`
 
 * `sudo ldconfig` (may not be needed)
