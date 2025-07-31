@@ -17,12 +17,12 @@
 
 ### Step 2: Install the CUDA Toolkit and NVIDIA Drivers according to [NVIDIA CUDA Toolkit Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network)
 
-Install CUDA Toolkit 12.8 (OpenCV does not compile currently with 12.9) using:
+Install latest CUDA Toolkit:
 
 * `wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb`
 * `sudo dpkg -i cuda-keyring_1.1-1_all.deb`
 * `sudo apt-get update`
-* `sudo apt-get install cuda-toolkit-12-8`
+* `sudo apt-get install cuda-toolkit`
 
 Install NVIDIA Open Source Drivers:
 
@@ -92,9 +92,9 @@ Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
 * Compile with options below:
 ```
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D WITH_CUDNN=ON -D WITH_CUBLAS=ON -D WITH_TBB=ON -D OPENCV_DNN_CUDA=ON -D OPENCV_ENABLE_NONFREE=ON -D CUDA_ARCH_BIN={compute capability number in the form of x.x} -D OPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -D BUILD_EXAMPLES=OFF -D HAVE_opencv_python3=ON -D ENABLE_FAST_MATH=1 -D cuda_toolkit_root_dir=/usr/local/cuda -D CUDNN_INCLUDE_DIR=/usr/include/ -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so.9 -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.12/dist-packages ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D WITH_CUDNN=ON -D WITH_CUBLAS=ON -D WITH_TBB=ON -D OPENCV_DNN_CUDA=ON -D OPENCV_ENABLE_NONFREE=ON -D CUDA_ARCH_BIN={compute capability number in the form of x.x} -D OPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -D BUILD_EXAMPLES=OFF -D HAVE_opencv_python3=ON -D ENABLE_FAST_MATH=1 -D cuda_toolkit_root_dir=/usr/local/cuda -D CUDNN_INCLUDE_DIR=/usr/include/x86_64-linux-gnu -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so.9 -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.12/dist-packages ..
 ```
-* Ensure that the Python3: numpy: is version 2 (v2.2.5) in the cmake results
+* Ensure that the Python3: numpy: is version 2.X.X in the cmake results
 
 * `make -j$(nproc)`
 
@@ -111,5 +111,3 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUD
 * `import numpy, cv2`
 
 * The following command should indicate that the GPU was located: `cv2.cuda.printCudaDeviceInfo(0)`
-
-
