@@ -1,5 +1,5 @@
 # opencv-cuda-ubuntu2404
-## Compile OpenCV using the NVIDIA CUDA Toolkit v12.9 and numpy2 v2.2 under Ubuntu 24.04 in a virtual environment
+## Compile OpenCV using the NVIDIA CUDA Toolkit v12.9 and numpy2 v2.3.3 under Ubuntu 24.04 in a virtual environment
 
 **Note:** These instructions can be used for a minimal Ubuntu installation option using Python 3.12.
 
@@ -24,7 +24,7 @@ Install CUDA Toolkit 12.9 (v13.0 is not currently supported):
 * `sudo apt-get update`
 * `sudo apt-get install cuda-toolkit-12-9`
 
-Install the latest NVIDIA Open Source Drivers:
+Install the latest NVIDIA Open Source Drivers (note: Linux kernel 6.14.0-29-generic is the latest kernel version compatible with NVIDIA Open driver version 580)
 
 * `sudo apt-get install nvidia-open`
 
