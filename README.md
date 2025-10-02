@@ -21,12 +21,12 @@ Install CUDA Toolkit 12.9 (v13.0 is not currently supported):
 
 * `wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb`
 * `sudo dpkg -i cuda-keyring_1.1-1_all.deb`
-* `sudo apt-get update`
-* `sudo apt-get install cuda-toolkit-12-9`
+* `sudo apt update`
+* `sudo apt install cuda-toolkit-12-9`
 
-Install the latest NVIDIA Open Source Drivers (note: Linux kernel 6.14.0-29-generic is the latest kernel version compatible with NVIDIA Open driver version 580)
+Install the latest NVIDIA Signed Drivers from Canonical (for optimization and security)
 
-* `sudo apt-get install nvidia-open`
+* `sudo apt install linux-nvidia`
 
 Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
