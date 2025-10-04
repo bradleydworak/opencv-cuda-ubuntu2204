@@ -26,7 +26,7 @@ Install CUDA Toolkit 12.9 (v13.0 is not currently supported):
 
 Install the latest NVIDIA Signed Drivers from Canonical (for optimization and security)
 
-* `sudo apt install linux-nvidia`
+* `sudo apt install linux-nvidia` or for example for a specific kernel version `linux-nvidia-6.14`
 
 Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
