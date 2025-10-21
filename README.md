@@ -17,14 +17,16 @@
 
 ### Step 2: Install the CUDA Toolkit and NVIDIA Drivers according to [NVIDIA CUDA Toolkit Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network)
 
-Install CUDA Toolkit 12.9 (v13.0 is not currently supported):
+Install CUDA Toolkit 13.0:
 
 * `wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb`
 * `sudo dpkg -i cuda-keyring_1.1-1_all.deb`
 * `sudo apt update`
-* `sudo apt install cuda-toolkit-12-9`
+* `sudo apt install cuda-13-0`
 
 Install the latest NVIDIA Signed Drivers from Canonical (for optimization and security)
+
+* `sudo apt install nvidia-open`
 
 * `sudo apt install linux-nvidia` or for example for a specific kernel version `linux-nvidia-6.14`
 
@@ -40,7 +42,7 @@ Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
 ### Step 3: Install latest CUDNN drivers 
 
-* `sudo apt-get install cudnn9-cuda-12` (at the time of writing cuDNN 12 is the latest)
+* `sudo apt-get install cudnn9-cuda-13` (at the time of writing cuDNN v9 is the latest)
 
 ### Step 4: Create a Python 3.12 Virtual Environment using pipx
 
