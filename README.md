@@ -64,7 +64,7 @@ Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
 ### Step 5: Find Compute Capability for the GPU from [Your GPU Compute Capability](https://developer.nvidia.com/cuda-gpus)
 
-### Step 6: Install prerequisites to compile OpenCV from source code, adopted from [Installing OpenCV 4 with CUDA in Ubuntu 22.04](https://towardsdev.com/installing-opencv-4-with-cuda-in-ubuntu-20-04-fde6d6a0a367)
+### Step 6: Install prerequisites to compile OpenCV from source code, 
 
 * `sudo apt install cmake`
 
@@ -80,7 +80,33 @@ Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
 * `sudo apt install git`
 
-### Step 7: Compile and install OpenCV
+### Step 7: Install other prerequisites to compile FFMPEG from source code, 
+
+* `sudo apt-get install build-essential yasm libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev`
+
+### Step 8: Compile and install the latest FFMPEG, adopted from [Using FFmpeg with NVIDIA GPU Hardware Acceleration](https://docs.nvidia.com/video-technologies/video-codec-sdk/11.1/ffmpeg-with-nvidia-gpu/index.html)
+
+* Clone and install ffnvcodec headers
+
+`git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git`
+
+`cd nv-codec-headers && sudo make install && cd –`
+
+* Clone FFMpeg repository
+  
+`git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg/ ** cd ffmpeg`
+
+* Configure, compile, and install source code using flags/options below. Be sure the paths point to your cuda folder...
+
+```
+./configure --prefix=/usr/local --extra-cflags='-I/usr/local/include -I/usr/local/cuda/include' --extra-ldflags='-L/usr/local/lib -L/usr/local/cuda/lib64' --extra-libs='-lpthread -lm' --enable-gpl --enable-nonfree --enable-cuda-nvcc --enable-cuda-llvm --enable-nvenc --enable-cuvid --disable-static --enable-shared`
+```
+
+`make -j$(nproc)`
+
+`sudo make install`
+
+### Step 9: Compile and install the latest OpenCV adopted from [Installing OpenCV 4 with CUDA in Ubuntu 22.04](https://towardsdev.com/installing-opencv-4-with-cuda-in-ubuntu-20-04-fde6d6a0a367)
 
 * `git clone https://github.com/opencv/opencv.git`
 
@@ -92,11 +118,13 @@ Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
 * cd opencv/build
 
-* Compile with options below:
+* Compile with the flags/options below. Make sure that the FFMPEG and CUDNN library and Python packages path point to the correct destinations...
+
 ```
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D WITH_CUDNN=ON -D WITH_CUBLAS=ON -D WITH_TBB=ON -D OPENCV_DNN_CUDA=ON -D OPENCV_ENABLE_NONFREE=ON -D CUDA_ARCH_BIN={compute capability number in the form of x.x} -D OPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -D BUILD_EXAMPLES=OFF -D HAVE_opencv_python3=ON -D ENABLE_FAST_MATH=1 -D cuda_toolkit_root_dir=/usr/local/cuda -D CUDNN_INCLUDE_DIR=/usr/include/x86_64-linux-gnu -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so.9 -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.12/dist-packages ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D CMAKE_PREFIX_PATH=/usr/local -D FFMPEG_INCLUDE_DIR=/usr/local/include -D FFMPEG_LIBRARIES="/usr/local/lib/libavcodec.so;/usr/local/lib/libavformat.so;/usr/local/lib/libavutil.so;/usr/local/lib/libswscale.so" -D CMAKE_VERBOSE_MAKEFILE=ON -D WITH_CUDA=ON -D WITH_NVCUVID=OFF -D WITH_NVCUVENC=OFF -D WITH_CUDNN=ON -D WITH_CUBLAS=ON -D WITH_TBB=ON -D WITH_FFMPEG=ON -D BUILD_opencv_cudacodec=ON -D OPENCV_DNN_CUDA=ON -D OPENCV_ENABLE_NONFREE=ON -D CUDA_ARCH_BIN={compute capability number in the form of x.x} -D OPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -D BUILD_EXAMPLES=OFF -D HAVE_opencv_python3=ON -D ENABLE_FAST_MATH=1 -D cuda_toolkit_root_dir=/usr/local/cuda -D CUDNN_INCLUDE_DIR=/usr/include/x86_64-linux-gnu -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so.9 -D CUDA_nvcuvid_LIBRARY=/usr/lib/x86_64-linux.gnu -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.12/dist-packages ..
 ```
-* Ensure that the Python3: numpy: is version 2.X.X in the cmake results
+
+* Ensure that the Python3: numpy: is version 2.X.X in the cmake results and FFMPEG reports the correct versions of the libav*.so libraries
 
 * `make -j$(nproc)`
 
@@ -108,7 +136,7 @@ Note: If cmake fails to compile due to missing cudnn header and library files, p
 
 * `sudo ln -s /usr/local/lib/python3.12/dist-packages/cv2 {environment path and name}/lib/python3.12/site-packages/cv2`
 
-### Step 7: Test installation
+### Step 10: Test installation
 
 * Open Python interpreter: `python3`
 
