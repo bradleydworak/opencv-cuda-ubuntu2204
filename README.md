@@ -115,7 +115,7 @@ Optional: Enable persistence mode for the GPU to reduce power draw at idle:
 
 * Ensure your Python environment is activated
 
-* cd opencv/build
+* `cd opencv/build`
 
 * Compile with the flags/options below. Make sure that the FFMPEG and CUDNN library and Python packages path point to the correct destinations...
 
