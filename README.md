@@ -15,7 +15,7 @@
 
 * `sudo apt autoremove`
 
-### Step 2: Install the CUDA Toolkit and NVIDIA Drivers according to [NVIDIA CUDA Toolkit Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network)
+### Step 2: Install CUDA 13.0 platform and NVIDIA Open Drivers according to [NVIDIA CUDA Toolkit Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network)
 
 Install CUDA Toolkit 13.0:
 
@@ -23,10 +23,9 @@ Install CUDA Toolkit 13.0:
 * `sudo dpkg -i cuda-keyring_1.1-1_all.deb`
 * `sudo apt update`
 * `sudo apt install cuda-13-0`
+* `sudo apt install nvidia-open` (may already install from line above)
 
 Install the latest NVIDIA Signed Drivers from Canonical (for optimization and security)
-
-* `sudo apt install nvidia-open`
 
 * `sudo apt install linux-nvidia` or for example for a specific kernel version `linux-nvidia-6.14`
 
