@@ -1,5 +1,5 @@
 # compile-cuda-opencv-ffmpeg-ubuntu
-## Compile OpenCV and FFMPEG with hardware accelarated video encoding using the NVIDIA CUDA Toolkit v13.0 and numpy2 v2.3.3 under Ubuntu 24.04
+## Compile OpenCV and FFMPEG with hardware accelarated video encoding using the NVIDIA CUDA Toolkit v13.0 and numpy2 v2.3 under Ubuntu 24.04
 
 **Note:** These instructions can be used for a minimal Ubuntu installation option using Python 3.12.
 
